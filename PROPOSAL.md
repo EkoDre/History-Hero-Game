@@ -28,8 +28,9 @@ The quiz is based on **history and war-related trivia** questions.
 - As a player, I want **dynamic visuals**:
   - A **red-themed battlefield** background when I lose.
   - A **"Hero" moment** with a **heroic image (like Captain America)** when I win.
-
----
+ - A player will choose between **1 and 3 themes**
+ _ each theme will have their own history questions depending on which theme they pick
+ -  
 
 This project aims to make history learning **fun, engaging, and challenging**! 
 
@@ -37,7 +38,7 @@ This project aims to make history learning **fun, engaging, and challenging**!
 
 // psuedo Code 
 
-```plaintext
+```java
 1. Start the game.
 
 const Player 
@@ -64,7 +65,7 @@ let correct answer = 0
 print("Choose a history theme: 1) Civil War  2) Midieval Battles  3) Ancient History")  
 
 let themeChoice = getUserInput() 
-
+```
 
 5. Get the player's answer.
 
@@ -133,13 +134,11 @@ I play on getting my information and data from chatgbt.
 ## Timeline
 | Day        |   | Task                               | Blockers | Notes/ Thoughts |
 |------------|---|------------------------------------|----------|-----------------|
-| Thursday   |   | Create and present proposal        |          |                 |
-| Friday     |   | Create html, js, css files         |          |                 |
-| Saturday   |   | Create basic scaffolding           |          |                 |
-| Sunday     |   | Add functionality                  |          |                 |
-| Monday     |   | Add styling                        |          |                 |
-| Tuesday    |   | Finaliza MVP                       |          |                 |
-| Wedenesday |   | Work on stretch goals              |          |                 |
-| Thursday   |   | Work on icebox items if applicable |          |                 |
-| Friday     |   | Presentation Day!                  |          |                 |
-|            |   |                                    |          |                 |
+| Monday      |   | proposal and approval             |          |      approval!  |
+| Tuesday     |   | research and structure            |          |  get the data   |
+| Wednesday   |   | html css                          |          | little by little|
+| Thursday    |   | create javascript                 |          |getting somewhere|
+| Friday      |   | Advanced javascript               |          |   cool details  |
+| Saturday    |   | Finaliz MVP                       | friends  |  feel better    |
+| Sunday      |   | testing and debugging             | friends  |  you did it     |
+| Monday      |   | Presentation                      |          |                 |
