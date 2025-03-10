@@ -1,6 +1,6 @@
 # History Hero
 
-**History Hero** is a history quiz game where players start with **100 lives** and must guess **7 correct answers** to become a **"Hero"**.  
+**History Hero** is a history quiz game where players start with **100 health** and must guess **7 correct answers** to become a **"Hero"**.  
 If a player answers incorrectly, they lose **25% of their life**—losing all their lives results in a game over.  
 The quiz is based on **history and war-related trivia** questions.  
 
@@ -31,28 +31,56 @@ The quiz is based on **history and war-related trivia** questions.
 
 ---
 
-This project aims to make history learning **fun, engaging, and challenging**! 🚀
+This project aims to make history learning **fun, engaging, and challenging**! 
 
 
 
 // psuedo Code 
 
+```plaintext
 1. Start the game.
+
+const Player 
+
 
 2. Set player lives to 100.
 
+let health= 100
+
+if player answers true(let health = 100)
+if player answers false take 25 away from the health and continue to next question(let health = 75)
+
+health bar will empty 
+
 3. Set correct answers to 0.
+
+at the start of the game 
+
+let correct answer = 0
+
 
 4. Ask a history question.
 
+print("Choose a history theme: 1) Civil War  2) Midieval Battles  3) Ancient History")  
+
+let themeChoice = getUserInput() 
+
+
 5. Get the player's answer.
+
+Print "Choose a history theme: 1) Civil War  2) World War II  3) Ancient History"  
+
+Get player choice and store in themeChoice  
+
+question 1 will result in one of themes chosen and a question 
+
 
 6. If the answer is correct:
       - Add 1 to correct answers.
       - Show "Correct! Move to next question."
 
 7. If the answer is wrong:
-      - Subtract 25 from player lives.
+      - Subtract 25 from player health.
       - Show "Wrong! The correct answer is [correct answer]."
 
 8. Repeat steps 4-7 until:
@@ -71,11 +99,47 @@ This project aims to make history learning **fun, engaging, and challenging**! �
 
 11. Ask the player if they want to play again.
 
+if player health === 0 
+print game "battle lost"
+print "Try Again"
+
+ Get playerInput  
+    If playerInput is "yes" then  
+        Restart game  
+    Else  
+        Print "Thanks for playing!"  
+
 12. If they say "Yes":
       - Restart the game (go back to Step 2).
 
 13. If they say "No":
       - End the game.
+```
+
+
+## Wire frame for History Hero 
+
+![Wire Frame](./assets/Screenshot%202025-03-10%20at%204.06.30 PM.png)
 
 
 
+## Data sets 
+
+my data sets will be locally stored. Plan on writng data inside the code or on a Json file 
+
+I play on getting my information and data from chatgbt. 
+
+
+## Timeline
+| Day        |   | Task                               | Blockers | Notes/ Thoughts |
+|------------|---|------------------------------------|----------|-----------------|
+| Thursday   |   | Create and present proposal        |          |                 |
+| Friday     |   | Create html, js, css files         |          |                 |
+| Saturday   |   | Create basic scaffolding           |          |                 |
+| Sunday     |   | Add functionality                  |          |                 |
+| Monday     |   | Add styling                        |          |                 |
+| Tuesday    |   | Finaliza MVP                       |          |                 |
+| Wedenesday |   | Work on stretch goals              |          |                 |
+| Thursday   |   | Work on icebox items if applicable |          |                 |
+| Friday     |   | Presentation Day!                  |          |                 |
+|            |   |                                    |          |                 |
