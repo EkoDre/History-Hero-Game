@@ -38,7 +38,7 @@ This project aims to make history learning **fun, engaging, and challenging**!
 
 // psuedo Code 
 
-```java
+```plaintext
 1. Start the game.
 
 const Player 
@@ -65,7 +65,6 @@ let correct answer = 0
 print("Choose a history theme: 1) Civil War  2) Midieval Battles  3) Ancient History")  
 
 let themeChoice = getUserInput() 
-```
 
 5. Get the player's answer.
 
