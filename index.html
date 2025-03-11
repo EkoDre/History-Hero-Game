@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>History Hero</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+     <!-- start screen -->
+    <div id="start-screen">
+        <h1>History Hero</h1>
+        <p>Choose your theme:</p>
+        <button class="theme-btn" data-theme="civil-war">Civil War</button>
+        <button class="theme-btn" data-theme="medieval-wars">Medieval Wars</button>
+        <button class="theme-btn" data-theme="ancient-history">Ancient History</button>
+    </div>
+
+     <!-- Quiz Screen -->
+    <div id="quiz-container" style="display: none;">
+        <h2 id="question-title">Question will appear here</h2>
+        <div id="options-container"></div>
+        <p id="feedback"></p>
+        
+        // health-bar
+        <div id="health-bar-container">
+            <p>Health:</p>
+            <div id="health-bar">
+                <div id="health-progress"></div>
+            </div>
+        </div>
+
+        <p id="score">Correct Answers: 0</p>
+    </div>
+
+     <!-- game-over-screen -->
+    <div id="game-over-screen" style="display: none;">
+        <h2 id="game-over-message"></h2>
+        <button id="restart-btn">Play Again</button>
+    </div>
+
+    <script src="script.js"></script>
+
+</body>
+</html>

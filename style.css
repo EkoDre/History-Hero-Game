@@ -1,0 +1,41 @@
+/* Center Start Screen */
+#start-screen {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    height: 100vh; 
+    background-size: fill;
+    font-size: larger;
+    font-style: italic;
+    color: red;
+}
+
+
+.theme-btn {
+    width: 200px; 
+    text-align: center;
+    margin: 10px 0
+}
+
+#start-screen {
+    background-image: url('https://raw.githubusercontent.com/EkoDre/History-Hero-Game/main/History%20hero%20main%20page.webp'); 
+    background-size: cover; 
+    background-position: center; 
+    background-repeat: no-repeat;
+    width: 100vw; 
+    height: 100vh; 
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+html, body {
+    margin: 0;
+    padding: 0;
+    overflow: hidden; 
+    width: 100vw; 
+    height: 100vh; 
+}
+
