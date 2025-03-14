@@ -1,0 +1,137 @@
+/* 1. Basic Page Setup */
+body {
+    margin: 0;
+    padding: 0;
+    background-color: black; /* Fallback color if image doesn't load */
+    background-image: url('https://raw.githubusercontent.com/EkoDre/History-Hero-Game/59f406319af17e4847a82456ec6e2beb3bf0e258/Civil%20War%20Background.webp'); /* Replace with your actual image link */
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: cover;
+    
+    /* body fill screen */
+    min-height: 100vh;
+    display: flex;
+    justify-content: center;  /* Center horizontally */
+    align-items: center;      /* Center vertically */
+    font-family: Arial, sans-serif;
+    color: white;
+  }
+  
+  /* 2. Quiz Container - the main box around  quiz */
+  .quiz-container {
+    position: top;
+    padding-top: 20px;
+    margin-bottom: 10px;
+    background-color: darkblue; /* A dark blue box for your quiz */
+    width: 400px;               /* Controls how wide the quiz is */
+    padding: 20px;
+    border-radius: 15px;
+    text-align: center;
+    box-shadow: 3px 3px 8px gray; /* Small shadow */
+    opacity: 0.9;                /* Slight transparency so the background shows through */
+  }
+  
+  /* Title inside the quiz container */
+  .quiz-container h1 {
+    top: 10px; /* Remove extra spacing at the top */
+    font-size: 24px;
+    margin-bottom: 10px;
+  }
+  
+  /* 3. Health Bar  */
+  .health-container {
+    position: fixed;
+    top: 20px;
+    right: 20px;
+    background-color: red;
+    padding: 10px;
+    border-radius: 5px;
+    font-weight: bold;
+    font-size: 14px;
+  }
+  
+  /* The empty 'track' of the health bar */
+  .health-bar {
+    width: 150px;
+    height: 20px;
+    background-color: white;
+    border: 2px solid black;
+    border-radius: 10px;
+    overflow: hidden;
+    margin-top: 5px;
+
+  }
+  
+  /* The actual health fill */
+  .health {
+    width: 100%;  /* Start at full health */
+    height: 100%;
+    background-color: red;
+    transition: width 0.5s ease-in-out;
+  }
+  
+
+  #question-container {
+    background-color: white;
+    color: black;
+    padding: 15px;
+    border-radius: 8px;
+    font-size: 18px;
+    margin-top: 10px;
+  }
+  
+ 
+  #answer-buttons {
+    display: flex;
+    flex-wrap: wrap;          /* Allows buttons to wrap to a new row */
+    justify-content: space-between;
+    margin-top: 20px;
+  }
+  
+  .answer-btn {
+    width: 48%;               /* About half the container width */
+    background-color: darkred;
+    color: white;
+    border: none;
+    padding: 10px;
+    font-size: 16px;
+    cursor: pointer;
+    border-radius: 5px;
+    margin-bottom: 10px;      /* Space between rows */
+  }
+  
+  .answer-btn:hover {
+    background-color: red;
+  }
+  
+  /* 6. Next Question Button */
+  #next-btn {
+    position: absolute; /* Removes it from normal flow */
+    bottom: 10px;       /* Moves it 10px from the bottom of quiz-container */
+    left: 10px;         /* Moves it 10px from the left side */
+    background-color: green;
+    color: white;
+    border: none;
+    margin: 5%;
+    padding: 15px;
+    font-size: 16px;
+    cursor: pointer;
+    border-radius: 10px;
+  }
+  
+  #next-btn:hover {
+    background-color: darkgreen;
+  }
+  
+  /* 7. Game Over Message */
+  #game-over {
+    display: none;            /* Hidden by default */
+    background-color: darkred;
+    color: white;
+    padding: 15px;
+    border-radius: 8px;
+    margin-top: 10px;
+    font-size: 18px;
+    text-align: center;
+  }
+  

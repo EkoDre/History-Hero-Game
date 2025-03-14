@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>History Hero</title>
+    <link rel="stylesheet" href="style.css" />
+    <script src="./app.js" defer></script>
+  </head>
+  <body>
+    <div>
+      <p class="display"></p>
+      <div class="quiz-container">
+        <h1>Civil War</h1>
+      </div>
+
+      <!-- Health Bar -->
+      <div class="health-container">
+        <p>Health:</p>
+        <div class="health-bar">
+          <div class="health" id="health"></div>
+        </div>
+      </div>
+
+      <!-- Question Display -->
+      <div id="question-container">
+        <p id="question">Loading question...</p>
+      </div>
+
+      <!-- Answer Buttons -->
+      <div id="answer-buttons">
+        <button class="answer-btn">Option 1</button>
+        <button class="answer-btn">Option 2</button>
+        <button class="answer-btn">Option 3</button>
+        <button class="answer-btn">Option 4</button>
+      </div>
+
+      <!-- Next Question Button -->
+      <button id="next-btn">Next Question</button>
+
+      <!-- Game Over Message -->
+      <div id="game-over" class="hidden">
+        <h2>Game Over!</h2>
+        <button onclick="location.reload()">Play Again</button>
+      </div>
+    </div>
+  </body>
+</html>
