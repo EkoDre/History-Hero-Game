@@ -135,3 +135,63 @@ body {
     text-align: center;
   }
   
+  #victory-message {
+    display: none; /* Hidden at first */
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background: black;
+    color: white;
+    padding: 20px;
+    text-align: center;
+    border-radius: 10px;
+  }
+  
+  #victory-message button {
+    background: yellow;
+    border: none;
+    padding: 10px;
+    cursor: pointer;
+  }
+  
+
+/* Hides the element when we first load the page */
+.hidden {
+  display: none;
+}
+
+/* Make the game-over box stand out a bit */
+.game-over {
+  border: 2px solid red;       /* Simple red border */
+  padding: 20px;               /* Some space inside the box */
+  margin: 20px 0;              /* Space above/below the box */
+  text-align: center;          /* Center the text and button */
+  background-color: #ffe5e5;   /* Light red/pink background */
+  color: red;                  /* Red text for the "Game Over" theme */
+  width: 300px;                /* Fixed width (beginner-friendly) */
+  margin-left: auto;           /* Center the box horizontally */
+  margin-right: auto;          /* (works with a fixed width) */
+  border-radius: 10px;         /* Rounded corners */
+}
+
+
+.display {
+  font-size: 24px;
+  font-weight: bold;
+  text-align: center;
+  margin-top: 10px;
+  transition: color 0.5s ease-in-out, transform 0.3s ease-in-out;
+}
+
+/* Make "Correct!" text green and slightly enlarge */
+.display.correct {
+  color: green;
+  transform: scale(1.2);
+}
+
+/* Make "You're Hurt, Soldier!" text red and slightly enlarge */
+.display.hurt {
+  color: red;
+  transform: scale(1.2);
+}

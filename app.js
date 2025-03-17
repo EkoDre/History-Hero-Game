@@ -1,3 +1,4 @@
+// 1) Quiz data
 const civilWarQuiz = [
   {
     question: "What year did the American Civil War begin?",
@@ -5,8 +6,7 @@ const civilWarQuiz = [
     options: ["1776", "1812", "1861", "1865"],
   },
   {
-    question:
-      "Who was the President of the United States during the Civil War?",
+    question: "Who was the President of the United States during the Civil War?",
     answer: "Abraham Lincoln",
     options: [
       "Andrew Jackson",
@@ -89,34 +89,29 @@ const civilWarQuiz = [
   },
 ];
 
-const buttons = document.querySelectorAll(".answer-btn");
-const display = document.querySelector(".display")
+// 2) Variables to track state
+let currentQuestionIndex = 0; 
+let currentQuestion = null; 
 
+const buttons = document.querySelectorAll(".answer-btn");
+const display = document.querySelector(".display");
+let nextRoundCheck = false;
+
+// 3) Example click listeners on your buttons (the shuffleArray inside is not fully used yet)
 buttons.forEach((button) => {
   button.addEventListener("click", (event) => {
     console.log(event.target.textContent);
-    // This section is next
 
-   
-    const shuffleArray = function (options) {
-      for (let i = options.length - 1; i > 0; i--) {
-        // Your shuffle logic here (e.g., swapping elements)
-      }
-      return options;
-    };
+    
   });
 });
 
+// 4) Shuffle function to randomize the entire quiz
 function shuffle(array) {
   let currentIndex = array.length;
-
-  // While there remain elements to shuffle...
   while (currentIndex != 0) {
-    // Pick a remaining element...
     let randomIndex = Math.floor(Math.random() * currentIndex);
     currentIndex--;
-
-    // And swap it with the current element.
     [array[currentIndex], array[randomIndex]] = [
       array[randomIndex],
       array[currentIndex],
@@ -124,15 +119,15 @@ function shuffle(array) {
   }
 }
 
+// 5) DOMContentLoaded: Shuffle quiz & display first question
 document.addEventListener("DOMContentLoaded", function () {
   shuffle(civilWarQuiz);
 
   const buttons = document.querySelectorAll(".answer-btn");
-
   const questionBox = document.querySelector("#question");
-
   const questionDefintion = civilWarQuiz[0];
 
+  currentQuestion = questionDefintion; // Track the question
   questionBox.textContent = questionDefintion.question;
 
   buttons[0].textContent = questionDefintion.options[0];
@@ -141,99 +136,127 @@ document.addEventListener("DOMContentLoaded", function () {
   buttons[3].textContent = questionDefintion.options[3];
 });
 
+// 6) Next button logic
 const nextButton = document.querySelector("#next-btn");
 
-nextButton.addEventListener("click", function () {
-  display.textContent = ""
 
+// ADDED: Disable Next at the start so you can't skip
+nextButton.disabled = true;
+
+nextButton.addEventListener("click", function () {
+  // ---- 1) Remove the "if (!nextRoundCheck) return;" check so Next always works
+  // if (!nextRoundCheck) return; // <== REMOVED
+  nextRoundCheck = false; 
+
+  display.textContent = "";
+
+  // If no more questions left, you win
   if (civilWarQuiz.length === 0) {
-    alert("Congrats! You are a Hero!");
+    document.getElementById("victory-message").style.display = "block";
     console.log("You Win!");
-    return; // Stop if no more questions are left
+    return; 
   }
 
   const questionBox = document.querySelector("#question");
   const buttons = document.querySelectorAll(".answer-btn");
 
-  // Get a random question index
+  // Pick a random question
   const randomIndex = Math.floor(Math.random() * civilWarQuiz.length);
-  const randomQuestion = civilWarQuiz[randomIndex]; // Select question
+  currentQuestion = civilWarQuiz[randomIndex]; 
 
-  console.log(randomQuestion);
+  // ---- 2) Replace randomQuestion with currentQuestion
+  console.log(currentQuestion);       // Log the newly picked question
   console.log("you clicked next");
 
-  // Display question
-  questionBox.textContent = randomQuestion.question;
+  questionBox.textContent = currentQuestion.question;
 
-  // Assign answer options using a loop
-  randomQuestion.options.forEach((option, index) => {
+  // Assign answer options
+  currentQuestion.options.forEach((option, index) => {
     buttons[index].textContent = option;
+    buttons[index].disabled = false; // re-enable buttons for new question
   });
 
-  // Remove used question from the array
-  civilWarQuiz.splice(randomIndex, 1);
-});
-
-// Also grab the options from the randomIndex and put them into the buttons
-// randcomQuestion.options
-// HINT: loop the buttons, and for each button grab one option and
-// change the buttons .textContent to be the option
-
-// let total score == 100
-// if player get the answer score remains 100
-// if player gets answers incorrect minus 25 from score
-// total 10 question
-
-// function checks answers playerschoice.answer
-//dont take a life if the answer matches
-// if choose incorrect take a life
-//3 lives
-
-// HEEEALTH BAR !!!!!!!
-
-let lives = 3; // Player starts with 3 lives
-const healthBar = document.getElementById("health"); // Select health bar
-
-// Function to decrease lives and update the health bar
-function loseLife() {
-  if (lives > 0) {
-    lives--; // Reduce a life
-    updateHealthBar();
-    console.log("Lives left:", lives); // Debugging
-  }
-
-  if (lives === 0) {
-    alert("Game Over! You lost all your lives."); // ❌ Game Over message
-    location.reload(); // Restart the game
-  }
-}
-
-// Function to update health bar width
-function updateHealthBar() {
-  const percentage = (lives / 3) * 100; // Convert lives to percentage
-  healthBar.style.width = percentage + "%"; // Shrink health bar
-  console.log("Updated Health:", percentage + "%"); // Debugging
-}
-
-// ✅ Modify your existing button click event to call `loseLife()` when wrong
-
-buttons.forEach(function (button) {
-  button.addEventListener("click", function () {
-    const selectedAnswer = button.textContent;
-    const currentQuestion = civilWarQuiz[0];
+ // Remove used question from the array
+civilWarQuiz.splice(randomIndex, 1);
   
 
+ // ADDED: Disable Next again for the new question
+ nextButton.disabled = true;
+
+});
+
+// 7) Health bar logic
+let lives = 3; 
+const healthBar = document.getElementById("health");
+
+function loseLife() {
+  if (lives > 0) {
+    lives--;
+    updateHealthBar();
+    console.log("Lives left:", lives);
+  }
+  if (lives === 0) {
+    document.getElementById("game-over").classList.remove("hidden");
+    
+    console.log("Game-over");
+    document.getElementById("game-over").style.display = "block"; // Show Game Over
+    nextButton.disabled = true; // Disable Next button
+    buttons.forEach((btn) => btn.disabled = true); // Disable all answer buttons
+  }
+  }
+
+  document.addEventListener("DOMContentLoaded", function () {
+    document.querySelector("#game-over button").addEventListener("click", function () {
+      lives = 3; // Reset Lives
+      currentQuestionIndex = 0; // Restart from first question
+      shuffle(civilWarQuiz); // Shuffle questions again
+      updateHealthBar();
+      document.getElementById("game-over").style.display = "none"; // Hide Game Over screen
+      buttons.forEach((btn) => btn.disabled = false); // Enable answer buttons
+      nextButton.disabled = true; // Disable Next button until an answer is chosen
+      askQuestion(); // Start new round
+    });
+  });
+  
+
+
+
+function updateHealthBar() {
+  const percentage = (lives / 3) * 100;
+  healthBar.style.width = percentage + "%";
+  console.log("Updated Health:", percentage + "%");
+}
+
+// 8) When user clicks an answer
+buttons.forEach(function (button) {
+  button.addEventListener("click", function () {
+    nextRoundCheck = true; 
+
+       // ADDED: Enable Next now that a choice was made
+       nextButton.disabled = false;
+
+
+
+    const selectedAnswer = button.textContent;
+    if (!currentQuestion) return;  // Make sure we have a question
+
+    // Disable all buttons after an attempt
+    buttons.forEach(function (btn) {
+      btn.disabled = true;
+    });
+
+    // Check the answer
     if (selectedAnswer === currentQuestion.answer) {
-      // alert("Correct Soldier!");
-      console.log("correct")
-      display.textContent = "Correct"
+      console.log("correct");
+      display.textContent = "Correct";
+      display.classList.add("correct");
+setTimeout(() => display.classList.remove("correct"), 1000); // Reset after 1 second
     } else {
-      // alert("You're Hurt Soldier!");
-      console.log("You're hurt")
-      display.textContent = "You're Hurt Soldier!"
-      loseLife(); //  Lose a life on wrong answer
-
-
+      console.log("You're hurt");
+      display.textContent = "You're Hurt Soldier!";
+      display.classList.add("hurt");
+setTimeout(() => display.classList.remove("hurt"), 1000); // Reset after 1 second
+      loseLife(); // lose a life on wrong
     }
   });
 });
