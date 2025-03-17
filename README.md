@@ -44,5 +44,14 @@ Test your Civil War knowledge and prove your skills! 🏅
 
 ---
 
+
+## 🛠 Technologies Used
+- **HTML** – Structure of the game  
+- **CSS** – Styling & layout  
+- **JavaScript** – Game logic and interactions  
+
+
+
+
 ![History Hero Game](https://github.com/EkoDre/History-Hero-Game/blob/main/history_hero_image.png)
 
