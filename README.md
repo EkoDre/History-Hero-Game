@@ -52,6 +52,21 @@ Test your Civil War knowledge and prove your skills! 🏅
 
 
 
+---
+
+
+## 🔮 Next Steps (Stretch Goals)
+
+- 🎵 Add sound effects for right and wrong answers.  
+- 🎶 Add a background music theme.  
+- ⏳ Add a timer for each question.  
+- 🏆 Add Easy, Medium, and Hard difficulty levels.  
+- 🎭 Let players choose between 1, 2, or 3 themes.  
+- ⚔️ Improve visuals with effects for right and wrong answers.  
+
+
+
+
 
 ![History Hero Game](https://github.com/EkoDre/History-Hero-Game/blob/main/history_hero_image.png)
 
